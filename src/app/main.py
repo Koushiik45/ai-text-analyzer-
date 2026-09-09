@@ -6,7 +6,7 @@ It demonstrates: proper project structure, error handling, logging, type safety,
 and the pattern you'll use for every AI service you build from here on.
 """
 
-from ast import Return
+
 import logging
 from datetime import datetime, timezone
 
