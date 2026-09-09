@@ -93,3 +93,10 @@ class TestAnalyzeEndpoint:
         )
         data = response.json()
         assert "T" in data["processed_at"]  # ISO format check
+class TestVersionEndpoint:
+    def test_version_returns_ok(self):
+        response = client.get("/version")
+        assert response.status_code == 200
+        data = response.json()
+        assert data["version"] == "0.1.0"
+        assert data["title"] == "AI Text Analyzer"
