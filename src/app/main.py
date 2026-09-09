@@ -6,6 +6,7 @@ It demonstrates: proper project structure, error handling, logging, type safety,
 and the pattern you'll use for every AI service you build from here on.
 """
 
+
 import logging
 from datetime import datetime, timezone
 
@@ -55,6 +56,10 @@ async def health_check() -> dict:
     """Used by monitoring systems to verify the service is alive."""
     return {"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()}
 
+@app.get("/version")
+async def get_version() -> dict:
+    """Return the current API version."""
+    return{"version": app.version,"title": app.title}
 
 # --- Main endpoint ---
 @app.post("/analyze", response_model=AnalyzeResponse)
